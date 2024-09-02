@@ -55,6 +55,55 @@ const permissionRouter = {
   ]
 };
 
+const testPageRouter = {
+  path: "/test",
+  meta: {
+    title: "测试页",
+    icon: "ep:upload",
+    rank: 10
+  },
+  children: [
+    {
+      path: "/test/upload/index",
+      name: "UploadTestPage",
+      meta: {
+        title: "上传测试",
+        roles: ["admin", "common"]
+      }
+    },
+    {
+      path: "/test/button",
+      meta: {
+        title: "按钮权限",
+        roles: ["admin", "common"]
+      },
+      children: [
+        {
+          path: "/test/button/router",
+          component: "permission/button/index",
+          name: "PermissionButtonRouter",
+          meta: {
+            title: "路由返回按钮权限",
+            auths: [
+              "permission:btn:add",
+              "permission:btn:edit",
+              "permission:btn:delete"
+            ]
+          }
+        },
+        {
+          path: "/test/button/login",
+          component: "permission/button/perms",
+          name: "PermissionButtonLogin",
+          meta: {
+            title: "登录接口返回按钮权限"
+          }
+        }
+      ]
+    }
+  ]
+};
+
 export default defineFakeRoute([
   {
     url: "/get-async-routes",
@@ -62,7 +111,7 @@ export default defineFakeRoute([
     response: () => {
       return {
         success: true,
-        data: [permissionRouter]
+        data: [permissionRouter, testPageRouter]
       };
     }
   }
