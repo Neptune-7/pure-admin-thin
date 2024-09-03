@@ -12,5 +12,8 @@ addIcon("ep:home-filled", HomeFilled);
 // @iconify-icons/ri
 import Search from "@iconify-icons/ri/search-line";
 import InformationLine from "@iconify-icons/ri/information-line";
+import TestLine from "@iconify-icons/ri/test-tube-line";
+
+addIcon("ri:test-tube-line", TestLine);
 addIcon("ri:search-line", Search);
 addIcon("ri:information-line", InformationLine);

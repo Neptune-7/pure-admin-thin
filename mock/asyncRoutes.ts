@@ -59,44 +59,44 @@ const testPageRouter = {
   path: "/test",
   meta: {
     title: "测试页",
-    icon: "ep:upload",
+    icon: "ri:test-tube-line",
     rank: 10
   },
   children: [
     {
       path: "/test/upload/index",
       name: "UploadTestPage",
+      icon: "ep:upload",
+
       meta: {
-        title: "上传测试",
-        roles: ["admin", "common"]
-      }
-    },
-    {
-      path: "/test/button",
-      meta: {
-        title: "按钮权限",
+        title: "上传-Upload",
         roles: ["admin", "common"]
       },
       children: [
         {
-          path: "/test/button/router",
-          component: "permission/button/index",
-          name: "PermissionButtonRouter",
+          path: "/test/upload/index",
+          component: "test/upload/index",
+          name: "UploadTest",
           meta: {
-            title: "路由返回按钮权限",
-            auths: [
-              "permission:btn:add",
-              "permission:btn:edit",
-              "permission:btn:delete"
-            ]
+            title: "上传测试-文件流"
           }
-        },
+        }
+      ]
+    },
+    {
+      path: "/test/select/index",
+      name: "SelectTest",
+      meta: {
+        title: "选择器-Select",
+        roles: ["admin", "common"]
+      },
+      children: [
         {
-          path: "/test/button/login",
-          component: "permission/button/perms",
-          name: "PermissionButtonLogin",
+          path: "/test/select/index",
+          component: "test/select/index",
+          name: "SelectTest",
           meta: {
-            title: "登录接口返回按钮权限"
+            title: "选择器-类型差异"
           }
         }
       ]
